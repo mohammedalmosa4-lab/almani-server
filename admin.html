@@ -199,6 +199,15 @@ img{max-width:100%;display:block}
 .order-card{background:var(--card);border-radius:var(--radius);padding:14px;margin-bottom:10px;border:1px solid var(--card-border)}
 .oc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .oc-id{font-size:12px;font-weight:700;color:var(--primary)}
+.admin-order{cursor:pointer}
+#order-detail{max-width:500px}
+#order-detail .od-section{margin-bottom:16px}
+#order-detail .od-label{font-size:11px;color:var(--text3);margin-bottom:2px}
+#order-detail .od-value{font-size:14px;font-weight:600}
+#order-detail .od-items-table{width:100%;font-size:12px;border-collapse:collapse}
+#order-detail .od-items-table td{padding:6px 4px;border-bottom:1px solid var(--card-border)}
+#order-detail .od-items-table td:last-child{text-align:left;font-weight:700;color:var(--primary)}
+#order-detail .od-total-row td{border-bottom:none;padding-top:10px;font-size:15px;font-weight:900;color:var(--primary)}
 .status-badge{font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px}
 .st-pending{background:#FEF3C7;color:#D97706}.st-confirmed{background:#DBEAFE;color:#2563EB}
 .st-preparing{background:#F3E8FF;color:#9333EA}.st-delivering{background:#E0F2FE;color:#0284C7}
@@ -642,6 +651,14 @@ img{max-width:100%;display:block}
   </div>
 </div>
 
+<!-- Order Detail -->
+<div class="overlay" id="order-detail">
+  <div class="ov-header">
+    <div class="ov-back" onclick="document.getElementById('order-detail').classList.remove('show')"><i class="fas fa-arrow-right"></i></div>
+    <h2 id="od-title"><i class="fas fa-receipt" style="color:var(--primary);margin-left:6px"></i>تفاصيل الطلب</h2>
+  </div>
+  <div class="ov-body" id="od-body"></div>
+</div>
 
 <script>
 /* =========================================================
@@ -1699,14 +1716,15 @@ function renderAdminOrders(filter) {
     const payIcon = o.payment==='cash'?'fa-money-bill-wave':(o.payment==='shamcash'?'fa-building-columns':'fa-mobile-alt');
     const payColor = o.payment==='cash'?'#16A34A':(o.payment==='shamcash'?'#2563EB':'#EF4444');
     const itemsDetail = o.items.map(i=>i.name+' × '+i.qty+' ('+i.unit+')').join('، ');
-    return '<div class="admin-order"><div class="ao-top"><div class="oc-id">'+o.id+'</div><div class="status-badge '+st.cls+'">'+st.label+'</div></div>' +
+    const detailBtn = '<div class="st-btn" onclick="event.stopPropagation();showOrderDetail(\''+o.id+'\')" style="border-color:var(--primary);color:var(--primary)"><i class="fas fa-info-circle"></i></div>';
+    return '<div class="admin-order" onclick="showOrderDetail(\''+o.id+'\')"><div class="ao-top"><div class="oc-id">'+o.id+'</div><div class="status-badge '+st.cls+'">'+st.label+'</div></div>' +
       '<div class="ao-cust"><i class="fas fa-user" style="color:var(--primary);margin-left:4px"></i>'+(o.customerName||'مستخدم')+' &nbsp;|&nbsp; <i class="fas fa-phone" style="color:var(--primary);margin-left:4px"></i>+963'+o.phone+' &nbsp;|&nbsp; <i class="fas fa-map-marker-alt" style="color:var(--primary);margin-left:4px"></i>'+(o.address||'—')+'</div>' +
       '<div class="ao-items" style="margin-bottom:4px"><strong>المنتجات:</strong> '+itemsDetail+'</div>' +
       '<div style="display:flex;gap:8px;font-size:13px;font-weight:800;color:var(--primary);margin-bottom:6px">'+
       '<span><i class="fas '+payIcon+'" style="color:'+payColor+';margin-left:4px"></i>'+payLabel+' '+(o.txnId?'(#'+o.txnId+')':'')+'</span>'+
       '<span>| '+fmt(o.total)+' ل.س</span>'+
       '</div>'+
-      '<div class="ao-foot"><div style="font-size:10px;color:var(--text3)">'+ds+'</div><div class="status-btns">'+stBtns+'</div></div></div>';
+      '<div class="ao-foot"><div style="font-size:10px;color:var(--text3)">'+ds+'</div><div class="status-btns" style="display:flex;align-items:center;gap:4px">'+detailBtn+stBtns+'</div></div></div>';
   }).join('');
 }
 
@@ -1716,6 +1734,48 @@ function changeStatus(oid, ns) {
   const o = orders.find(or=>or.id===oid);
   if (o) { o.status = ns; localStorage.setItem('almani_orders', JSON.stringify(orders)); S.orders = orders; renderAdmin(); toast('تم تحديث الحالة','success'); }
   apiPut('/api/orders/'+oid+'/status', { status: ns }).catch(function(){});
+}
+
+function showOrderDetail(oid) {
+  let orders = [];
+  try { orders = JSON.parse(localStorage.getItem('almani_orders')||'[]'); } catch(e){}
+  const o = orders.find(or=>or.id===oid);
+  if (!o) { toast('الطلب غير موجود','error'); return; }
+  const payLabel = o.payment==='cash'?'نقداً':(o.payment==='shamcash'?'شام كاش':'سيرياتيل كاش');
+  const payIcon = o.payment==='cash'?'fa-money-bill-wave':(o.payment==='shamcash'?'fa-building-columns':'fa-mobile-alt');
+  const payColor = o.payment==='cash'?'#16A34A':(o.payment==='shamcash'?'#2563EB':'#EF4444');
+  const d = new Date(o.date);
+  const ds = d.toLocaleDateString('ar-SY')+' '+d.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit'});
+  const itemsHtml = o.items.map(i => {
+    const subtotal = (i.price||0) * (i.qty||1);
+    return '<tr><td>'+i.name+'</td><td>'+i.qty+' '+i.sub+'</td><td>'+fmt(i.price)+'</td><td>'+fmt(subtotal)+'</td></tr>';
+  }).join('');
+  const mapHtml = (o.lat&&o.lng)?'<iframe style="width:100%;height:180px;border-radius:12px;border:1px solid var(--card-border)" src="https://www.openstreetmap.org/export/embed.html?bbox='+(o.lng-.003)+','+(o.lat-.003)+','+(o.lng+.003)+','+(o.lat+.003)+'&layer=mapnik&marker='+o.lat+','+o.lng+'"></iframe>':'<div style="font-size:12px;color:var(--text3);padding:8px 0">لا يوجد موقع محدد</div>';
+  document.getElementById('od-body').innerHTML =
+    '<div class="od-section">'+
+      '<div class="od-label">رقم الطلب</div><div class="od-value">'+o.id+'</div>'+
+      '<div class="od-label" style="margin-top:8px">تاريخ الطلب</div><div class="od-value">'+ds+'</div>'+
+      '<div class="od-label" style="margin-top:8px">الحالة</div><div class="od-value"><span class="status-badge '+(STATUS[o.status]||STATUS.pending).cls+'">'+(STATUS[o.status]||STATUS.pending).label+'</span></div>'+
+    '</div>'+
+    '<div class="od-section">'+
+      '<div class="od-label">العميل</div><div class="od-value">'+(o.customerName||'مستخدم')+'</div>'+
+      '<div class="od-label" style="margin-top:8px">رقم الهاتف</div><div class="od-value" dir="ltr" style="direction:ltr">+963'+o.phone+'</div>'+
+      '<div class="od-label" style="margin-top:8px">عنوان التوصيل</div><div class="od-value">'+(o.address||'—')+'</div>'+
+      '<div class="od-label" style="margin-top:8px">الموقع على الخريطة</div>'+mapHtml+
+    '</div>'+
+    '<div class="od-section">'+
+      '<div class="od-label" style="margin-bottom:6px">طريقة الدفع</div>'+
+      '<div class="od-value"><i class="fas '+payIcon+'" style="color:'+payColor+';margin-left:4px"></i>'+payLabel+(o.txnId?' <span style="font-size:12px;color:var(--text2)">(#'+o.txnId+')</span>':'')+'</div>'+
+    '</div>'+
+    '<div class="od-section">'+
+      '<div class="od-label" style="margin-bottom:6px">المنتجات</div>'+
+      '<table class="od-items-table"><thead><tr style="font-size:11px;color:var(--text3)"><td>المنتج</td><td>الكمية</td><td>السعر</td><td>المجموع</td></tr></thead>'+
+      itemsHtml+
+      '<tr class="od-total-row"><td colspan="3"><strong>المجموع الكلي</strong></td><td>'+fmt(o.total)+' ل.س</td></tr>'+
+      '</table>'+
+    '</div>'+
+    (o.note?'<div class="od-section"><div class="od-label">ملاحظات</div><div class="od-value" style="color:var(--warn)">'+o.note+'</div></div>':'');
+  document.getElementById('order-detail').classList.add('show');
 }
 
 /* =========================================================
