@@ -208,6 +208,17 @@ img{max-width:100%;display:block}
 #order-detail .od-items-table td{padding:6px 4px;border-bottom:1px solid var(--card-border)}
 #order-detail .od-items-table td:last-child{text-align:left;font-weight:700;color:var(--primary)}
 #order-detail .od-total-row td{border-bottom:none;padding-top:10px;font-size:15px;font-weight:900;color:var(--primary)}
+#order-detail .od-prod-item{background:var(--bg);border-radius:var(--radius-sm);padding:12px;margin-bottom:8px;border:1.5px solid var(--card-border);display:flex;align-items:center;gap:10px}
+#order-detail .od-prod-item.unavailable{opacity:.55;border-color:var(--danger);background:#FEF2F2}
+#order-detail .od-prod-item .od-pi-info{flex:1}
+#order-detail .od-prod-item .od-pi-name{font-size:13px;font-weight:700}
+#order-detail .od-prod-item .od-pi-meta{font-size:11px;color:var(--text2);margin-top:2px}
+#order-detail .od-prod-item .od-pi-price{font-size:13px;font-weight:800;color:var(--primary)}
+#order-detail .od-prod-item .od-pi-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px}
+#order-detail .od-prod-item .od-pi-badge.unavail{background:#FEE2E2;color:#EF4444}
+#order-detail .od-prod-item .od-pi-btn{width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;background:var(--card);border:1.5px solid var(--card-border);color:var(--text2);flex-shrink:0}
+#order-detail .od-prod-item .od-pi-btn:hover{background:#FEE2E2;color:#EF4444;border-color:#EF4444}
+#order-detail .od-pi-btn.done{background:#DCFCE7;color:#16A34A;border-color:#16A34A}
 .status-badge{font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px}
 .st-pending{background:#FEF3C7;color:#D97706}.st-confirmed{background:#DBEAFE;color:#2563EB}
 .st-preparing{background:#F3E8FF;color:#9333EA}.st-delivering{background:#E0F2FE;color:#0284C7}
@@ -1746,11 +1757,24 @@ function showOrderDetail(oid) {
   const payColor = o.payment==='cash'?'#16A34A':(o.payment==='shamcash'?'#2563EB':'#EF4444');
   const d = new Date(o.date);
   const ds = d.toLocaleDateString('ar-SY')+' '+d.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit'});
-  const itemsHtml = o.items.map(i => {
+  const unavail = o.unavailable || [];
+  const itemsHtml = o.items.map((i,idx) => {
     const subtotal = (i.price||0) * (i.qty||1);
-    return '<tr><td>'+i.name+'</td><td>'+i.qty+' '+i.sub+'</td><td>'+fmt(i.price)+'</td><td>'+fmt(subtotal)+'</td></tr>';
+    const isUnavail = unavail.includes(idx);
+    return '<div class="od-prod-item'+(isUnavail?' unavailable':'')+'" id="od-pi-'+idx+'">'+
+      '<div style="flex:1">'+
+        '<div class="od-pi-name">'+i.name+'</div>'+
+        '<div class="od-pi-meta">الكمية: '+i.qty+' '+(i.sub||'')+' &middot; السعر: '+fmt(i.price)+' ل.س</div>'+
+        '<div class="od-pi-meta">المجموع: '+fmt(subtotal)+' ل.س</div>'+
+      '</div>'+
+      (isUnavail?'<span class="od-pi-badge unavail">غير متوفر</span>':'<button class="od-pi-btn" onclick="toggleUnavailable('+idx+',\''+o.id+'\')" title="تحديد كغير متوفر"><i class="fas fa-times"></i></button>')+
+    '</div>';
   }).join('');
   const mapHtml = (o.lat&&o.lng)?'<iframe style="width:100%;height:180px;border-radius:12px;border:1px solid var(--card-border)" src="https://www.openstreetmap.org/export/embed.html?bbox='+(o.lng-.003)+','+(o.lat-.003)+','+(o.lng+.003)+','+(o.lat+.003)+'&layer=mapnik&marker='+o.lat+','+o.lng+'"></iframe>':'<div style="font-size:12px;color:var(--text3);padding:8px 0">لا يوجد موقع محدد</div>';
+  const totalAdjust = o.items.reduce((sum,i,idx) => {
+    if (unavail.includes(idx)) return sum;
+    return sum + (i.price||0) * (i.qty||1);
+  }, 0);
   document.getElementById('od-body').innerHTML =
     '<div class="od-section">'+
       '<div class="od-label">رقم الطلب</div><div class="od-value">'+o.id+'</div>'+
@@ -1768,14 +1792,53 @@ function showOrderDetail(oid) {
       '<div class="od-value"><i class="fas '+payIcon+'" style="color:'+payColor+';margin-left:4px"></i>'+payLabel+(o.txnId?' <span style="font-size:12px;color:var(--text2)">(#'+o.txnId+')</span>':'')+'</div>'+
     '</div>'+
     '<div class="od-section">'+
-      '<div class="od-label" style="margin-bottom:6px">المنتجات</div>'+
-      '<table class="od-items-table"><thead><tr style="font-size:11px;color:var(--text3)"><td>المنتج</td><td>الكمية</td><td>السعر</td><td>المجموع</td></tr></thead>'+
+      '<div class="od-label" style="margin-bottom:8px">المنتجات <span style="font-size:11px;color:var(--text3);font-weight:400">(اضغط على × لتحديد منتج غير متوفر)</span></div>'+
       itemsHtml+
-      '<tr class="od-total-row"><td colspan="3"><strong>المجموع الكلي</strong></td><td>'+fmt(o.total)+' ل.س</td></tr>'+
-      '</table>'+
+      '<div style="display:flex;justify-content:space-between;font-size:15px;font-weight:900;color:var(--primary);padding:10px 0 0;border-top:2px solid var(--card-border);margin-top:4px">'+
+        '<span>المجموع المطلوب</span><span>'+fmt(totalAdjust)+' ل.س</span>'+
+      '</div>'+
     '</div>'+
-    (o.note?'<div class="od-section"><div class="od-label">ملاحظات</div><div class="od-value" style="color:var(--warn)">'+o.note+'</div></div>':'');
+    '<div class="od-section">'+
+      '<div class="od-label" style="margin-bottom:4px">ملاحظة للزبون (اختياري)</div>'+
+      '<textarea id="od-note-input" style="width:100%;padding:11px 14px;background:var(--bg);border:1.5px solid var(--card-border);border-radius:var(--radius-sm);font-size:13px;color:var(--text);resize:vertical;min-height:60px;font-family:var(--font)" placeholder="أكتب ملاحظة للزبون... مثل: سنتوفر قريباً، يمكن استبدال المنتج...">'+(o.adminNote||'')+'</textarea>'+
+    '</div>'+
+    '<button class="btn btn-primary" onclick="saveOrderChanges(\''+o.id+'\')"><i class="fas fa-save"></i> حفظ التعديلات وإرسال إشعار للزبون</button>';
   document.getElementById('order-detail').classList.add('show');
+}
+
+function toggleUnavailable(idx, oid) {
+  let orders = [];
+  try { orders = JSON.parse(localStorage.getItem('almani_orders')||'[]'); } catch(e){}
+  const o = orders.find(or=>or.id===oid);
+  if (!o) return;
+  if (!o.unavailable) o.unavailable = [];
+  const pos = o.unavailable.indexOf(idx);
+  if (pos>-1) o.unavailable.splice(pos,1);
+  else o.unavailable.push(idx);
+  localStorage.setItem('almani_orders', JSON.stringify(orders));
+  S.orders = orders;
+  showOrderDetail(oid);
+}
+
+function saveOrderChanges(oid) {
+  let orders = [];
+  try { orders = JSON.parse(localStorage.getItem('almani_orders')||'[]'); } catch(e){}
+  const o = orders.find(or=>or.id===oid);
+  if (!o) { toast('الطلب غير موجود','error'); return; }
+  const note = document.getElementById('od-note-input').value.trim();
+  if (note) o.adminNote = note;
+  else delete o.adminNote;
+  localStorage.setItem('almani_orders', JSON.stringify(orders));
+  S.orders = orders;
+  renderAdmin();
+  document.getElementById('order-detail').classList.remove('show');
+  // Show an alert-like message
+  toast('تم حفظ التعديلات', 'success');
+  // Try to send web push notification to customer if they're online
+  try {
+    const bc = new BroadcastChannel('almani_orders');
+    bc.postMessage({ type: 'order_updated', order: o });
+  } catch(e){}
 }
 
 /* =========================================================
