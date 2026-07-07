@@ -1695,9 +1695,9 @@ function renderAdminOrders(filter) {
     Object.entries(STATUS).forEach(([k,v])=>{
       stBtns += '<div class="st-btn" style="'+(o.status===k?'background:var(--primary);color:#fff;border-color:var(--primary)':'')+'" onclick="changeStatus(\''+o.id+'\',\''+k+'\')">'+v.label+'</div>';
     });
-    const payLabel = o.payment==='cash'?'نقداً':'سيرياتيل كاش';
-    const payIcon = o.payment==='cash'?'fa-money-bill-wave':'fa-mobile-alt';
-    const payColor = o.payment==='cash'?'#16A34A':'#EF4444';
+    const payLabel = o.payment==='cash'?'نقداً':(o.payment==='shamcash'?'شام كاش':'سيرياتيل كاش');
+    const payIcon = o.payment==='cash'?'fa-money-bill-wave':(o.payment==='shamcash'?'fa-building-columns':'fa-mobile-alt');
+    const payColor = o.payment==='cash'?'#16A34A':(o.payment==='shamcash'?'#2563EB':'#EF4444');
     const itemsDetail = o.items.map(i=>i.name+' × '+i.qty+' ('+i.unit+')').join('، ');
     return '<div class="admin-order"><div class="ao-top"><div class="oc-id">'+o.id+'</div><div class="status-badge '+st.cls+'">'+st.label+'</div></div>' +
       '<div class="ao-cust"><i class="fas fa-user" style="color:var(--primary);margin-left:4px"></i>'+(o.customerName||'مستخدم')+' &nbsp;|&nbsp; <i class="fas fa-phone" style="color:var(--primary);margin-left:4px"></i>+963'+o.phone+' &nbsp;|&nbsp; <i class="fas fa-map-marker-alt" style="color:var(--primary);margin-left:4px"></i>'+(o.address||'—')+'</div>' +
