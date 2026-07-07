@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -756,6 +756,7 @@ async function loadOrdersFromServer() {
     const orders = await apiGet('/api/orders' + (phone ? '?phone=' + phone : ''));
     if (orders) {
       S.orders = orders.map(o => ({ ...o, items: typeof o.items === 'string' ? JSON.parse(o.items) : o.items }));
+      localStorage.setItem('almani_orders', JSON.stringify(S.orders));
       _serverOrdersLoaded = true;
       if (document.getElementById('orders-list')) renderOrders();
       if (document.getElementById('admin-orders')) renderAdminOrders();
@@ -1721,21 +1722,20 @@ function renderAdminOrders(filter) {
     const ds = d.toLocaleDateString('ar-SY')+' '+d.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit'});
     let stBtns = '';
     Object.entries(STATUS).forEach(([k,v])=>{
-      stBtns += '<div class="st-btn" style="'+(o.status===k?'background:var(--primary);color:#fff;border-color:var(--primary)':'')+'" onclick="changeStatus(\''+o.id+'\',\''+k+'\')">'+v.label+'</div>';
+      stBtns += '<div class="st-btn" style="'+(o.status===k?'background:var(--primary);color:#fff;border-color:var(--primary)':'')+'" onclick="event.stopPropagation();changeStatus(\''+o.id+'\',\''+k+'\')">'+v.label+'</div>';
     });
     const payLabel = o.payment==='cash'?'نقداً':(o.payment==='shamcash'?'شام كاش':'سيرياتيل كاش');
     const payIcon = o.payment==='cash'?'fa-money-bill-wave':(o.payment==='shamcash'?'fa-building-columns':'fa-mobile-alt');
     const payColor = o.payment==='cash'?'#16A34A':(o.payment==='shamcash'?'#2563EB':'#EF4444');
     const itemsDetail = o.items.map(i=>i.name+' × '+i.qty+' ('+i.unit+')').join('، ');
-    const detailBtn = '<div class="st-btn" onclick="event.stopPropagation();showOrderDetail(\''+o.id+'\')" style="border-color:var(--primary);color:var(--primary)"><i class="fas fa-info-circle"></i></div>';
-    return '<div class="admin-order" onclick="showOrderDetail(\''+o.id+'\')"><div class="ao-top"><div class="oc-id">'+o.id+'</div><div class="status-badge '+st.cls+'">'+st.label+'</div></div>' +
+    return '<div class="admin-order" data-oid="'+o.id+'"><div class="ao-top"><div class="oc-id">'+o.id+'</div><div class="status-badge '+st.cls+'">'+st.label+'</div></div>' +
       '<div class="ao-cust"><i class="fas fa-user" style="color:var(--primary);margin-left:4px"></i>'+(o.customerName||'مستخدم')+' &nbsp;|&nbsp; <i class="fas fa-phone" style="color:var(--primary);margin-left:4px"></i>+963'+o.phone+' &nbsp;|&nbsp; <i class="fas fa-map-marker-alt" style="color:var(--primary);margin-left:4px"></i>'+(o.address||'—')+'</div>' +
       '<div class="ao-items" style="margin-bottom:4px"><strong>المنتجات:</strong> '+itemsDetail+'</div>' +
       '<div style="display:flex;gap:8px;font-size:13px;font-weight:800;color:var(--primary);margin-bottom:6px">'+
       '<span><i class="fas '+payIcon+'" style="color:'+payColor+';margin-left:4px"></i>'+payLabel+' '+(o.txnId?'(#'+o.txnId+')':'')+'</span>'+
       '<span>| '+fmt(o.total)+' ل.س</span>'+
       '</div>'+
-      '<div class="ao-foot"><div style="font-size:10px;color:var(--text3)">'+ds+'</div><div class="status-btns" style="display:flex;align-items:center;gap:4px">'+detailBtn+stBtns+'</div></div></div>';
+      '<div class="ao-foot"><div style="font-size:10px;color:var(--text3)">'+ds+'</div><div class="status-btns" style="display:flex;align-items:center;gap:4px">'+stBtns+'</div></div></div>';
   }).join('');
 }
 
@@ -1750,7 +1750,11 @@ function changeStatus(oid, ns) {
 function showOrderDetail(oid) {
   let orders = [];
   try { orders = JSON.parse(localStorage.getItem('almani_orders')||'[]'); } catch(e){}
-  const o = orders.find(or=>or.id===oid);
+  let o = orders.find(or=>or.id===oid);
+  if (!o && S.orders && S.orders.length) {
+    o = S.orders.find(or=>or.id===oid);
+    if (o) { localStorage.setItem('almani_orders', JSON.stringify(S.orders)); orders = S.orders; }
+  }
   if (!o) { toast('الطلب غير موجود','error'); return; }
   const payLabel = o.payment==='cash'?'نقداً':(o.payment==='shamcash'?'شام كاش':'سيرياتيل كاش');
   const payIcon = o.payment==='cash'?'fa-money-bill-wave':(o.payment==='shamcash'?'fa-building-columns':'fa-mobile-alt');
@@ -2480,6 +2484,12 @@ function init() {
     const bc = new BroadcastChannel('almani_orders');
     bc.onmessage = function(e) { if(e.data.type==='order_updated'){load();if(document.getElementById('admin-view').classList.contains('show'))renderAdmin();} };
   } catch(e){}
+
+  const ao = document.getElementById('admin-orders');
+  if (ao) ao.addEventListener('click', function(e) {
+    const orderDiv = e.target.closest('.admin-order');
+    if (orderDiv) showOrderDetail(orderDiv.dataset.oid);
+  });
 
   document.addEventListener('visibilitychange', function() {
     if (!document.hidden && document.getElementById('admin-view').classList.contains('show')) renderAdmin();
