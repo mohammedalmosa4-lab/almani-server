@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>ط¸â€‍ط¸ث†ط·آ­ط·آ© ط·آ§ط¸â€‍ط·ع¾ط·آ­ط¸ئ’ط¸â€¦ - ط·آ³ط¸ث†ط·آ¨ط·آ± ط¸â€¦ط·آ§ط·آ±ط¸ئ’ط·ع¾ ط·آ£ط¸â€‍ط¸â€¦ط·آ§ط¸â€ ط¸ظ¹</title>
+<title>ظ„ظˆط­ط© ط§ظ„طھط­ظƒظ… - ط³ظˆط¨ط± ظ…ط§ط±ظƒطھ ط£ظ„ظ…ط§ظ†ظٹ</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
@@ -149,41 +149,41 @@ input:focus,select:focus,textarea:focus{border-color:var(--primary)}.error{borde
 <div id="login-overlay">
   <div id="login-box">
     <div style="font-size:48px;color:var(--primary);margin-bottom:12px"><i class="fas fa-crown"></i></div>
-    <h2>ط¸â€‍ط¸ث†ط·آ­ط·آ© ط·آ§ط¸â€‍ط·ع¾ط·آ­ط¸ئ’ط¸â€¦</h2>
-    <p>ط·آ³ط¸ث†ط·آ¨ط·آ± ط¸â€¦ط·آ§ط·آ±ط¸ئ’ط·ع¾ ط·آ£ط¸â€‍ط¸â€¦ط·آ§ط¸â€ ط¸ظ¹</p>
-    <input type="password" id="pw-input" placeholder="ط¸ئ’ط¸â€‍ط¸â€¦ط·آ© ط·آ§ط¸â€‍ط·آ³ط·آ±" autocomplete="off" onkeydown="if(event.key==='Enter')checkPassword()">
-    <button class="btn btn-primary w-full" onclick="checkPassword()" id="login-btn"><i class="fas fa-lock-open"></i> ط·آ¯ط·آ®ط¸ث†ط¸â€‍</button>
-    <div style="margin-top:12px;font-size:11px;color:var(--text3)">ط·آ§ط¸â€‍ط·آ¹ط¸ث†ط·آ¯ط·آ© ط·آ¥ط¸â€‍ط¸â€° <a href="index.html"><i class="fas fa-store"></i> ط·آ§ط¸â€‍ط¸â€¦ط·ع¾ط·آ¬ط·آ±</a></div>
+    <h2>ظ„ظˆط­ط© ط§ظ„طھط­ظƒظ…</h2>
+    <p>ط³ظˆط¨ط± ظ…ط§ط±ظƒطھ ط£ظ„ظ…ط§ظ†ظٹ</p>
+    <input type="password" id="pw-input" placeholder="ظƒظ„ظ…ط© ط§ظ„ط³ط±" autocomplete="off" onkeydown="if(event.key==='Enter')checkPassword()">
+    <button class="btn btn-primary w-full" onclick="checkPassword()" id="login-btn"><i class="fas fa-lock-open"></i> ط¯ط®ظˆظ„</button>
+    <div style="margin-top:12px;font-size:11px;color:var(--text3)">ط§ظ„ط¹ظˆط¯ط© ط¥ظ„ظ‰ <a href="index.html"><i class="fas fa-store"></i> ط§ظ„ظ…طھط¬ط±</a></div>
   </div>
 </div>
 
 <div id="app" class="hidden">
   <aside id="sidebar">
-    <h2><i class="fas fa-crown"></i> ط¸â€‍ط¸ث†ط·آ­ط·آ© ط·آ§ط¸â€‍ط·ع¾ط·آ­ط¸ئ’ط¸â€¦</h2>
+    <h2><i class="fas fa-crown"></i> ظ„ظˆط­ط© ط§ظ„طھط­ظƒظ…</h2>
     <div class="nav-item active" data-tab="dashboard" onclick="switchTab('dashboard',this)">
-      <i class="fas fa-chart-pie"></i> ط·آ§ط¸â€‍ط·آ¥ط·آ­ط·آµط·آ§ط·آ¦ط¸ظ¹ط·آ§ط·ع¾
+      <i class="fas fa-chart-pie"></i> ط§ظ„ط¥ط­طµط§ط¦ظٹط§طھ
     </div>
     <div class="nav-item" data-tab="orders" onclick="switchTab('orders',this)">
-      <i class="fas fa-receipt"></i> ط·آ§ط¸â€‍ط·آ·ط¸â€‍ط·آ¨ط·آ§ط·ع¾
+      <i class="fas fa-receipt"></i> ط§ظ„ط·ظ„ط¨ط§طھ
     </div>
     <div class="nav-item" data-tab="products" onclick="switchTab('products',this)">
-      <i class="fas fa-box"></i> ط·آ§ط¸â€‍ط¸â€¦ط¸â€ ط·ع¾ط·آ¬ط·آ§ط·ع¾
+      <i class="fas fa-box"></i> ط§ظ„ظ…ظ†طھط¬ط§طھ
     </div>
     <div class="nav-item" data-tab="customers" onclick="switchTab('customers',this)">
-      <i class="fas fa-users"></i> ط·آ§ط¸â€‍ط·آ²ط·آ¨ط·آ§ط·آ¦ط¸â€ 
+      <i class="fas fa-users"></i> ط§ظ„ط²ط¨ط§ط¦ظ†
     </div>
     <div class="nav-item" data-tab="code" onclick="switchTab('code',this)">
-      <i class="fas fa-pen-code"></i> ط¸â€¦ط·آ­ط·آ±ط·آ± ط·آ§ط¸â€‍ط¸ئ’ط¸ث†ط·آ¯
+      <i class="fas fa-pen-code"></i> ظ…ط­ط±ط± ط§ظ„ظƒظˆط¯
     </div>
     <div class="nav-item" data-tab="settings" onclick="switchTab('settings',this)">
-      <i class="fas fa-cog"></i> ط·آ§ط¸â€‍ط·آ¥ط·آ¹ط·آ¯ط·آ§ط·آ¯ط·آ§ط·ع¾
+      <i class="fas fa-cog"></i> ط§ظ„ط¥ط¹ط¯ط§ط¯ط§طھ
     </div>
     <div style="margin-top:auto;padding-top:16px;border-top:1px solid var(--card-border)">
       <div class="nav-item" onclick="toggleDarkMode()">
-        <i class="fas fa-adjust"></i> <span id="dm-label">ط¸â€‍ط¸ظ¹ط¸â€‍ط¸ظ¹ / ط¸â€ ط¸â€،ط·آ§ط·آ±ط¸ظ¹</span>
+        <i class="fas fa-adjust"></i> <span id="dm-label">ظ„ظٹظ„ظٹ / ظ†ظ‡ط§ط±ظٹ</span>
       </div>
       <div class="nav-item" onclick="logout()">
-        <i class="fas fa-sign-out-alt"></i> ط·آ®ط·آ±ط¸ث†ط·آ¬
+        <i class="fas fa-sign-out-alt"></i> ط®ط±ظˆط¬
       </div>
     </div>
   </aside>
@@ -191,15 +191,15 @@ input:focus,select:focus,textarea:focus{border-color:var(--primary)}.error{borde
   <main id="main">
     <!-- Dashboard -->
     <div id="sec-dashboard" class="section active">
-      <h1>ط·آ§ط¸â€‍ط·آ¥ط·آ­ط·آµط·آ§ط·آ¦ط¸ظ¹ط·آ§ط·ع¾</h1>
-      <div class="subtitle">ط¸â€ ط·آ¸ط·آ±ط·آ© ط·آ¹ط·آ§ط¸â€¦ط·آ© ط·آ¹ط¸â€‍ط¸â€° ط·آ§ط¸â€‍ط¸â€¦ط·ع¾ط·آ¬ط·آ±</div>
+      <h1>ط§ظ„ط¥ط­طµط§ط¦ظٹط§طھ</h1>
+      <div class="subtitle">ظ†ط¸ط±ط© ط¹ط§ظ…ط© ط¹ظ„ظ‰ ط§ظ„ظ…طھط¬ط±</div>
       <div class="stats-grid" id="stats-grid"></div>
     </div>
 
     <!-- Orders -->
     <div id="sec-orders" class="section">
-      <h1>ط·آ§ط¸â€‍ط·آ·ط¸â€‍ط·آ¨ط·آ§ط·ع¾</h1>
-      <div class="subtitle">ط·آ¥ط·آ¯ط·آ§ط·آ±ط·آ© ط·آ·ط¸â€‍ط·آ¨ط·آ§ط·ع¾ ط·آ§ط¸â€‍ط·آ²ط·آ¨ط·آ§ط·آ¦ط¸â€ </div>
+      <h1>ط§ظ„ط·ظ„ط¨ط§طھ</h1>
+      <div class="subtitle">ط¥ط¯ط§ط±ط© ط·ظ„ط¨ط§طھ ط§ظ„ط²ط¨ط§ط¦ظ†</div>
       <div class="filter-bar" id="order-filters"></div>
       <div id="orders-list"></div>
     </div>
@@ -207,87 +207,87 @@ input:focus,select:focus,textarea:focus{border-color:var(--primary)}.error{borde
     <!-- Products -->
     <div id="sec-products" class="section">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px">
-        <div><h1 style="margin:0">ط·آ§ط¸â€‍ط¸â€¦ط¸â€ ط·ع¾ط·آ¬ط·آ§ط·ع¾</h1><div class="subtitle">ط·آ¥ط·آ¯ط·آ§ط·آ±ط·آ© ط·آ§ط¸â€‍ط¸â€¦ط¸â€ ط·ع¾ط·آ¬ط·آ§ط·ع¾ ط¸ث†ط·آ§ط¸â€‍ط¸â€¦ط·آ®ط·آ²ط¸ث†ط¸â€ </div></div>
-        <button class="btn btn-primary btn-sm" onclick="openForm()"><i class="fas fa-plus"></i> ط·آ¥ط·آ¶ط·آ§ط¸ظ¾ط·آ© ط¸â€¦ط¸â€ ط·ع¾ط·آ¬</button>
+        <div><h1 style="margin:0">ط§ظ„ظ…ظ†طھط¬ط§طھ</h1><div class="subtitle">ط¥ط¯ط§ط±ط© ط§ظ„ظ…ظ†طھط¬ط§طھ ظˆط§ظ„ظ…ط®ط²ظˆظ†</div></div>
+        <button class="btn btn-primary btn-sm" onclick="openForm()"><i class="fas fa-plus"></i> ط¥ط¶ط§ظپط© ظ…ظ†طھط¬</button>
       </div>
-      <div class="search-box"><i class="fas fa-search"></i><input type="text" id="prod-search" placeholder="ط·آ¨ط·آ­ط·آ«..." oninput="renderProducts(this.value)"></div>
+      <div class="search-box"><i class="fas fa-search"></i><input type="text" id="prod-search" placeholder="ط¨ط­ط«..." oninput="renderProducts(this.value)"></div>
       <div id="products-list" class="prod-grid"></div>
     </div>
 
     <!-- Customers -->
     <div id="sec-customers" class="section">
-      <h1>ط·آ§ط¸â€‍ط·آ²ط·آ¨ط·آ§ط·آ¦ط¸â€ </h1>
-      <div class="subtitle">ط¸â€ڑط·آ§ط·آ¦ط¸â€¦ط·آ© ط·آ§ط¸â€‍ط·آ²ط·آ¨ط·آ§ط·آ¦ط¸â€  ط·آ§ط¸â€‍ط¸â€¦ط·آ³ط·آ¬ط¸â€‍ط¸ظ¹ط¸â€ </div>
+      <h1>ط§ظ„ط²ط¨ط§ط¦ظ†</h1>
+      <div class="subtitle">ظ‚ط§ط¦ظ…ط© ط§ظ„ط²ط¨ط§ط¦ظ† ط§ظ„ظ…ط³ط¬ظ„ظٹظ†</div>
       <div id="customers-list"></div>
     </div>
 
     <!-- Code Editor -->
     <div id="sec-code" class="section">
-      <h1>ط¸â€¦ط·آ­ط·آ±ط·آ± ط·آ§ط¸â€‍ط¸ئ’ط¸ث†ط·آ¯</h1>
-      <div class="subtitle">ط·ع¾ط·آ¹ط·آ¯ط¸ظ¹ط¸â€‍ ط¸ئ’ط¸ث†ط·آ¯ ط·آ§ط¸â€‍ط·ع¾ط·آ·ط·آ¨ط¸ظ¹ط¸â€ڑ (ط¸ظ¹ط·آ¸ط¸â€،ط·آ± ط¸ظ¾ط¸ث†ط·آ±ط·آ§ط¸â€¹ ط¸â€‍ط¸â€‍ط·آ²ط·آ¨ط·آ§ط·آ¦ط¸â€ )</div>
+      <h1>ظ…ط­ط±ط± ط§ظ„ظƒظˆط¯</h1>
+      <div class="subtitle">طھط¹ط¯ظٹظ„ ظƒظˆط¯ ط§ظ„طھط·ط¨ظٹظ‚ (ظٹط¸ظ‡ط± ظپظˆط±ط§ظ‹ ظ„ظ„ط²ط¨ط§ط¦ظ†)</div>
       <div class="card">
         <div class="setting-group">
-          <h3><i class="fab fa-css3-alt"></i> CSS ط¸â€¦ط·آ®ط·آµط·آµ</h3>
-          <textarea id="custom-css-input" rows="6" style="direction:ltr;text-align:left;font-family:monospace;font-size:12px" placeholder="/* ط·آ£ط¸ئ’ط·ع¾ط·آ¨ ط¸ئ’ط¸ث†ط·آ¯ CSS ط¸â€،ط¸â€ ط·آ§ */"></textarea>
+          <h3><i class="fab fa-css3-alt"></i> CSS ظ…ط®طµطµ</h3>
+          <textarea id="custom-css-input" rows="6" style="direction:ltr;text-align:left;font-family:monospace;font-size:12px" placeholder="/* ط£ظƒطھط¨ ظƒظˆط¯ CSS ظ‡ظ†ط§ */"></textarea>
         </div>
       </div>
       <div class="card">
         <div class="setting-group">
-          <h3><i class="fab fa-js"></i> JS ط¸â€¦ط·آ®ط·آµط·آµ</h3>
-          <textarea id="custom-js-input" rows="6" style="direction:ltr;text-align:left;font-family:monospace;font-size:12px" placeholder="// ط·آ£ط¸ئ’ط·ع¾ط·آ¨ ط¸ئ’ط¸ث†ط·آ¯ JavaScript ط¸â€،ط¸â€ ط·آ§"></textarea>
+          <h3><i class="fab fa-js"></i> JS ظ…ط®طµطµ</h3>
+          <textarea id="custom-js-input" rows="6" style="direction:ltr;text-align:left;font-family:monospace;font-size:12px" placeholder="// ط£ظƒطھط¨ ظƒظˆط¯ JavaScript ظ‡ظ†ط§"></textarea>
         </div>
       </div>
       <div class="card">
         <div class="setting-group">
-          <h3><i class="fab fa-html5"></i> HTML ط¸â€¦ط·آ®ط·آµط·آµ</h3>
-          <textarea id="custom-html-input" rows="6" style="direction:ltr;text-align:left;font-family:monospace;font-size:12px" placeholder="<!-- ط·آ£ط¸ئ’ط·ع¾ط·آ¨ ط¸ئ’ط¸ث†ط·آ¯ HTML ط¸â€،ط¸â€ ط·آ§ -->"></textarea>
+          <h3><i class="fab fa-html5"></i> HTML ظ…ط®طµطµ</h3>
+          <textarea id="custom-html-input" rows="6" style="direction:ltr;text-align:left;font-family:monospace;font-size:12px" placeholder="<!-- ط£ظƒطھط¨ ظƒظˆط¯ HTML ظ‡ظ†ط§ -->"></textarea>
         </div>
       </div>
-      <button class="btn btn-primary" onclick="saveCustomCode()"><i class="fas fa-save"></i> ط·آ­ط¸ظ¾ط·آ¸ ط·آ§ط¸â€‍ط¸ئ’ط¸ث†ط·آ¯</button>
+      <button class="btn btn-primary" onclick="saveCustomCode()"><i class="fas fa-save"></i> ط­ظپط¸ ط§ظ„ظƒظˆط¯</button>
     </div>
 
     <!-- Settings -->
     <div id="sec-settings" class="section">
-      <h1>ط·آ§ط¸â€‍ط·آ¥ط·آ¹ط·آ¯ط·آ§ط·آ¯ط·آ§ط·ع¾</h1>
-      <div class="subtitle">ط·آ¥ط·آ¹ط·آ¯ط·آ§ط·آ¯ط·آ§ط·ع¾ ط·آ§ط¸â€‍ط¸â€¦ط·ع¾ط·آ¬ط·آ±</div>
+      <h1>ط§ظ„ط¥ط¹ط¯ط§ط¯ط§طھ</h1>
+      <div class="subtitle">ط¥ط¹ط¯ط§ط¯ط§طھ ط§ظ„ظ…طھط¬ط±</div>
       <div class="card">
         <div class="setting-group">
-          <h3><i class="fas fa-truck"></i> ط·آ³ط·آ¹ط·آ± ط·آ§ط¸â€‍ط·ع¾ط¸ث†ط·آµط¸ظ¹ط¸â€‍</h3>
+          <h3><i class="fas fa-truck"></i> ط³ط¹ط± ط§ظ„طھظˆطµظٹظ„</h3>
           <div class="setting-row">
             <input type="number" id="delivery-fee-input">
-            <button class="btn btn-primary btn-sm" onclick="saveDeliveryFee()">ط·آ­ط¸ظ¾ط·آ¸</button>
+            <button class="btn btn-primary btn-sm" onclick="saveDeliveryFee()">ط­ظپط¸</button>
           </div>
         </div>
       </div>
       <div class="card">
         <div class="setting-group">
-          <h3><i class="fas fa-bullhorn"></i> ط·آ¥ط·آ´ط·آ¹ط·آ§ط·آ± ط¸â€‍ط¸â€‍ط¸â€¦ط·ع¾ط·آ¬ط·آ±</h3>
+          <h3><i class="fas fa-bullhorn"></i> ط¥ط´ط¹ط§ط± ظ„ظ„ظ…طھط¬ط±</h3>
           <div class="setting-row">
-            <input type="text" id="announcement-input" placeholder="ط¸â€ ط·آµ ط·آ§ط¸â€‍ط·آ¥ط·آ´ط·آ¹ط·آ§ط·آ± ط·آ§ط¸â€‍ط·آ°ط¸ظ¹ ط¸ظ¹ط·آ¸ط¸â€،ط·آ± ط¸â€‍ط¸â€‍ط·آ²ط·آ¨ط·آ§ط·آ¦ط¸â€ ">
-            <button class="btn btn-primary btn-sm" onclick="saveAnnouncement()">ط·آ­ط¸ظ¾ط·آ¸</button>
+            <input type="text" id="announcement-input" placeholder="ظ†طµ ط§ظ„ط¥ط´ط¹ط§ط± ط§ظ„ط°ظٹ ظٹط¸ظ‡ط± ظ„ظ„ط²ط¨ط§ط¦ظ†">
+            <button class="btn btn-primary btn-sm" onclick="saveAnnouncement()">ط­ظپط¸</button>
           </div>
           <div class="toggle-row mt-2">
             <div class="toggle" id="announcement-toggle" onclick="toggleAnnouncement()"></div>
-            <span class="lbl" id="announcement-status">ط·ط›ط¸ظ¹ط·آ± ط¸â€¦ط¸ظ¾ط·آ¹ط¸â€‍</span>
+            <span class="lbl" id="announcement-status">ط؛ظٹط± ظ…ظپط¹ظ„</span>
           </div>
         </div>
       </div>
       <div class="card">
         <div class="setting-group">
-          <h3><i class="fab fa-whatsapp"></i> ط¸â€¦ط¸ظ¾ط·ع¾ط·آ§ط·آ­ CallMeBot API</h3>
+          <h3><i class="fab fa-whatsapp"></i> ظ…ظپطھط§ط­ CallMeBot API</h3>
           <div class="setting-row">
             <input type="text" id="callmebot-input" placeholder="API Key">
-            <button class="btn btn-primary btn-sm" onclick="saveCallMeBotKey()">ط·آ­ط¸ظ¾ط·آ¸</button>
+            <button class="btn btn-primary btn-sm" onclick="saveCallMeBotKey()">ط­ظپط¸</button>
           </div>
           <div style="font-size:11px;color:var(--text3);margin-top:4px" id="callmebot-status"></div>
         </div>
       </div>
       <div class="card">
         <div class="setting-group">
-          <h3><i class="fas fa-tags"></i> ط·آ§ط¸â€‍ط·آ£ط¸â€ڑط·آ³ط·آ§ط¸â€¦</h3>
+          <h3><i class="fas fa-tags"></i> ط§ظ„ط£ظ‚ط³ط§ظ…</h3>
           <div class="cat-list" id="cats-list"></div>
           <div class="setting-row mt-2">
-            <input type="text" id="new-cat-name" placeholder="ط·آ§ط·آ³ط¸â€¦ ط·آ§ط¸â€‍ط¸â€ڑط·آ³ط¸â€¦ ط·آ§ط¸â€‍ط·آ¬ط·آ¯ط¸ظ¹ط·آ¯" style="flex:1">
+            <input type="text" id="new-cat-name" placeholder="ط§ط³ظ… ط§ظ„ظ‚ط³ظ… ط§ظ„ط¬ط¯ظٹط¯" style="flex:1">
             <input type="text" id="new-cat-icon" placeholder="fa-tag" style="width:80px">
             <button class="btn btn-primary btn-sm" onclick="addCategory()"><i class="fas fa-plus"></i></button>
           </div>
@@ -300,25 +300,25 @@ input:focus,select:focus,textarea:focus{border-color:var(--primary)}.error{borde
 <!-- Product Form Modal -->
 <div id="form-overlay" class="hidden" onclick="if(event.target===this)closeForm()">
   <div id="form-box">
-    <h3 id="form-title">ط·آ¥ط·آ¶ط·آ§ط¸ظ¾ط·آ© ط¸â€¦ط¸â€ ط·ع¾ط·آ¬</h3>
+    <h3 id="form-title">ط¥ط¶ط§ظپط© ظ…ظ†طھط¬</h3>
     <div class="img-area" id="img-area" onclick="document.getElementById('img-file').click()">
-      <div class="placeholder" id="img-placeholder"><i class="fas fa-camera" style="font-size:24px;display:block;margin-bottom:4px"></i>ط·آµط¸ث†ط·آ±ط·آ© ط·آ§ط¸â€‍ط¸â€¦ط¸â€ ط·ع¾ط·آ¬</div>
+      <div class="placeholder" id="img-placeholder"><i class="fas fa-camera" style="font-size:24px;display:block;margin-bottom:4px"></i>طµظˆط±ط© ط§ظ„ظ…ظ†طھط¬</div>
     </div>
     <input type="file" id="img-file" accept="image/*" style="display:none" onchange="handleImage(this)">
-    <div class="form-group"><label>ط·آ§ط¸â€‍ط·آ§ط·آ³ط¸â€¦ (ط·آ¹ط·آ±ط·آ¨ط¸ظ¹)</label><input type="text" id="f-name"></div>
-    <div class="form-group"><label>ط·آ§ط¸â€‍ط·آ§ط·آ³ط¸â€¦ (ط·آ£ط¸â€‍ط¸â€¦ط·آ§ط¸â€ ط¸ظ¹)</label><input type="text" id="f-sub"></div>
+    <div class="form-group"><label>ط§ظ„ط§ط³ظ… (ط¹ط±ط¨ظٹ)</label><input type="text" id="f-name"></div>
+    <div class="form-group"><label>ط§ظ„ط§ط³ظ… (ط£ظ„ظ…ط§ظ†ظٹ)</label><input type="text" id="f-sub"></div>
     <div class="form-row">
-      <div class="form-group"><label>ط·آ§ط¸â€‍ط·آ³ط·آ¹ط·آ±</label><input type="number" id="f-price"></div>
-      <div class="form-group"><label>ط·آ§ط¸â€‍ط¸ث†ط·آ­ط·آ¯ط·آ©</label><input type="text" id="f-unit"></div>
+      <div class="form-group"><label>ط§ظ„ط³ط¹ط±</label><input type="number" id="f-price"></div>
+      <div class="form-group"><label>ط§ظ„ظˆط­ط¯ط©</label><input type="text" id="f-unit"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>ط·آ§ط¸â€‍ط¸â€ڑط·آ³ط¸â€¦</label><select id="f-cat"></select></div>
-      <div class="form-group"><label>ط·آ§ط¸â€‍ط¸ث†ط·آ³ط¸â€¦</label><input type="text" id="f-badge" placeholder="ط¸â€¦ط¸â€¦ط¸ظ¹ط·آ² / ط·آ¹ط·آ±ط·آ¶"></div>
+      <div class="form-group"><label>ط§ظ„ظ‚ط³ظ…</label><select id="f-cat"></select></div>
+      <div class="form-group"><label>ط§ظ„ظˆط³ظ…</label><input type="text" id="f-badge" placeholder="ظ…ظ…ظٹط² / ط¹ط±ط¶"></div>
     </div>
-    <div class="form-group"><label>ط·آ§ط¸â€‍ط·آ®ط·آµط¸â€¦ (%)</label><input type="number" id="f-discount" placeholder="0"></div>
+    <div class="form-group"><label>ط§ظ„ط®طµظ… (%)</label><input type="number" id="f-discount" placeholder="0"></div>
     <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px">
-      <button class="btn btn-outline" onclick="closeForm()">ط·آ¥ط¸â€‍ط·ط›ط·آ§ط·طŒ</button>
-      <button class="btn btn-primary" onclick="saveForm()"><i class="fas fa-save"></i> <span id="form-save-btn">ط·آ¥ط·آ¶ط·آ§ط¸ظ¾ط·آ©</span></button>
+      <button class="btn btn-outline" onclick="closeForm()">ط¥ظ„ط؛ط§ط،</button>
+      <button class="btn btn-primary" onclick="saveForm()"><i class="fas fa-save"></i> <span id="form-save-btn">ط¥ط¶ط§ظپط©</span></button>
     </div>
   </div>
 </div>
@@ -403,7 +403,7 @@ function checkPassword() {
   const inp = document.getElementById('pw-input');
   const btn = document.getElementById('login-btn');
   btn.disabled = true;
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ط·آ¬ط·آ§ط·آ±ط¸ظ¹ ط·آ§ط¸â€‍ط·ع¾ط·آ­ط¸â€ڑط¸â€ڑ...';
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ط¬ط§ط±ظٹ ط§ظ„طھط­ظ‚ظ‚...';
   apiPost('/api/admin/login', { password: inp.value }).then(function(r) {
     if (r.token) {
       TOKEN = r.token;
@@ -414,10 +414,10 @@ function checkPassword() {
     } else {
       inp.classList.add('error');
       inp.value = '';
-      toast('ط¸ئ’ط¸â€‍ط¸â€¦ط·آ© ط·آ§ط¸â€‍ط·آ³ط·آ± ط·آ®ط·آ·ط·آ£', 'error');
+      toast('ظƒظ„ظ…ط© ط§ظ„ط³ط± ط®ط·ط£', 'error');
     }
   }).catch(function() {
-    // fallback ط¸â€¦ط·آ­ط¸â€‍ط¸ظ¹
+    // fallback ظ…ط­ظ„ظٹ
     if (inp.value === 'admin2121') {
       document.getElementById('login-overlay').classList.add('hidden');
       document.getElementById('app').classList.remove('hidden');
@@ -425,11 +425,11 @@ function checkPassword() {
     } else {
       inp.classList.add('error');
       inp.value = '';
-      toast('ط¸ئ’ط¸â€‍ط¸â€¦ط·آ© ط·آ§ط¸â€‍ط·آ³ط·آ± ط·آ®ط·آ·ط·آ£', 'error');
+      toast('ظƒظ„ظ…ط© ط§ظ„ط³ط± ط®ط·ط£', 'error');
     }
   }).finally(function() {
     btn.disabled = false;
-    btn.innerHTML = '<i class="fas fa-lock-open"></i> ط·آ¯ط·آ®ط¸ث†ط¸â€‍';
+    btn.innerHTML = '<i class="fas fa-lock-open"></i> ط¯ط®ظˆظ„';
   });
 }
 
@@ -452,7 +452,7 @@ async function loadAll() {
     CATS = cats || [];
     ORDERS = (orders || []).map(o => ({ ...o, items: typeof o.items === 'string' ? JSON.parse(o.items) : o.items }));
     CUSTOMERS = customers || [];
-  } catch(e) { toast('ط·ع¾ط·آ¹ط·آ°ط·آ± ط·ع¾ط·آ­ط¸â€¦ط¸ظ¹ط¸â€‍ ط·آ§ط¸â€‍ط·آ¨ط¸ظ¹ط·آ§ط¸â€ ط·آ§ط·ع¾ ط¸â€¦ط¸â€  ط·آ§ط¸â€‍ط·آ³ط¸ظ¹ط·آ±ط¸ظ¾ط·آ±', 'error'); }
+  } catch(e) { toast('طھط¹ط°ط± طھط­ظ…ظٹظ„ ط§ظ„ط¨ظٹط§ظ†ط§طھ ظ…ظ† ط§ظ„ط³ظٹط±ظپط±', 'error'); }
   renderAll();
 }
 
@@ -474,21 +474,21 @@ function renderStats() {
   const cancelled = ORDERS.filter(o => o.status === 'cancelled').length;
   const totalRev = ORDERS.reduce((s, o) => s + (parseFloat(o.total) || 0), 0);
   g.innerHTML = `
-    <div class="stat-card"><div class="num">${total}</div><div class="lbl">ط·آ¥ط·آ¬ط¸â€¦ط·آ§ط¸â€‍ط¸ظ¹ ط·آ§ط¸â€‍ط·آ·ط¸â€‍ط·آ¨ط·آ§ط·ع¾</div></div>
-    <div class="stat-card"><div class="num" style="color:#D97706">${pending}</div><div class="lbl">ط¸â€ڑط¸ظ¹ط·آ¯ ط·آ§ط¸â€‍ط¸â€¦ط·آ¹ط·آ§ط¸â€‍ط·آ¬ط·آ©</div></div>
-    <div class="stat-card"><div class="num" style="color:var(--success)">${delivered}</div><div class="lbl">ط¸â€¦ط¸ئ’ط·ع¾ط¸â€¦ط¸â€‍ط·آ©</div></div>
-    <div class="stat-card"><div class="num">${totalRev.toLocaleString('ar-SY')}</div><div class="lbl">ط·آ¥ط¸ظ¹ط·آ±ط·آ§ط·آ¯ط·آ§ط·ع¾ (ط¸â€‍.ط·آ³)</div></div>
-    <div class="stat-card"><div class="num" style="color:var(--danger)">${cancelled}</div><div class="lbl">ط¸â€¦ط¸â€‍ط·ط›ط¸ظ¹ط·آ©</div></div>
+    <div class="stat-card"><div class="num">${total}</div><div class="lbl">ط¥ط¬ظ…ط§ظ„ظٹ ط§ظ„ط·ظ„ط¨ط§طھ</div></div>
+    <div class="stat-card"><div class="num" style="color:#D97706">${pending}</div><div class="lbl">ظ‚ظٹط¯ ط§ظ„ظ…ط¹ط§ظ„ط¬ط©</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--success)">${delivered}</div><div class="lbl">ظ…ظƒطھظ…ظ„ط©</div></div>
+    <div class="stat-card"><div class="num">${totalRev.toLocaleString('ar-SY')}</div><div class="lbl">ط¥ظٹط±ط§ط¯ط§طھ (ظ„.ط³)</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--danger)">${cancelled}</div><div class="lbl">ظ…ظ„ط؛ظٹط©</div></div>
   `;
 }
 
 const STATUS_MAP = {
-  pending: { label:'ط¸â€ڑط¸ظ¹ط·آ¯ ط·آ§ط¸â€‍ط¸â€¦ط·آ±ط·آ§ط·آ¬ط·آ¹ط·آ©', cls:'st-pending' },
-  confirmed: { label:'ط¸â€¦ط·آ¤ط¸ئ’ط·آ¯', cls:'st-confirmed' },
-  preparing: { label:'ط¸â€ڑط¸ظ¹ط·آ¯ ط·آ§ط¸â€‍ط·ع¾ط·آ­ط·آ¶ط¸ظ¹ط·آ±', cls:'st-preparing' },
-  delivering: { label:'ط¸â€ڑط¸ظ¹ط·آ¯ ط·آ§ط¸â€‍ط·ع¾ط¸ث†ط·آµط¸ظ¹ط¸â€‍', cls:'st-delivering' },
-  delivered: { label:'ط·ع¾ط¸â€¦ ط·آ§ط¸â€‍ط·ع¾ط¸ث†ط·آµط¸ظ¹ط¸â€‍', cls:'st-delivered' },
-  cancelled: { label:'ط¸â€¦ط¸â€‍ط·ط›ط¸ظ¹', cls:'st-cancelled' }
+  pending: { label:'ظ‚ظٹط¯ ط§ظ„ظ…ط±ط§ط¬ط¹ط©', cls:'st-pending' },
+  confirmed: { label:'ظ…ط¤ظƒط¯', cls:'st-confirmed' },
+  preparing: { label:'ظ‚ظٹط¯ ط§ظ„طھط­ط¶ظٹط±', cls:'st-preparing' },
+  delivering: { label:'ظ‚ظٹط¯ ط§ظ„طھظˆطµظٹظ„', cls:'st-delivering' },
+  delivered: { label:'طھظ… ط§ظ„طھظˆطµظٹظ„', cls:'st-delivered' },
+  cancelled: { label:'ظ…ظ„ط؛ظٹ', cls:'st-cancelled' }
 };
 
 function renderOrders(filter) {
@@ -499,13 +499,13 @@ function renderOrders(filter) {
   // filters
   const fb = document.getElementById('order-filters');
   fb.innerHTML = ['all','pending','confirmed','preparing','delivering','delivered','cancelled'].map(f => {
-    const lbl = f === 'all' ? 'ط·آ§ط¸â€‍ط¸ئ’ط¸â€‍' : STATUS_MAP[f].label;
+    const lbl = f === 'all' ? 'ط§ظ„ظƒظ„' : STATUS_MAP[f].label;
     return '<div class="filter-tab' + (f === filter ? ' active' : '') + '" onclick="setFilter(\''+f+'\',this)">' + lbl + '</div>';
   }).join('');
 
   const c = document.getElementById('orders-list');
   if (!list.length) {
-    c.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text3)"><i class="fas fa-inbox" style="font-size:40px;display:block;margin-bottom:12px"></i>ط¸â€‍ط·آ§ ط·ع¾ط¸ث†ط·آ¬ط·آ¯ ط·آ·ط¸â€‍ط·آ¨ط·آ§ط·ع¾</div>';
+    c.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text3)"><i class="fas fa-inbox" style="font-size:40px;display:block;margin-bottom:12px"></i>ظ„ط§ طھظˆط¬ط¯ ط·ظ„ط¨ط§طھ</div>';
     return;
   }
   c.innerHTML = list.map(o => {
@@ -513,13 +513,13 @@ function renderOrders(filter) {
     const d = new Date(o.date);
     const ds = d.toLocaleDateString('ar-SY') + ' ' + d.toLocaleTimeString('ar-SY', { hour:'2-digit', minute:'2-digit' });
     const items = (o.items || []);
-    const itemsShort = items.map(i => i.name + ' x' + i.qty).join('ط·إ’ ');
+    const itemsShort = items.map(i => i.name + ' x' + i.qty).join('طŒ ');
     const itemsDetail = items.map(i => {
       const price = parseInt(i.price || 0).toLocaleString('ar-SY');
       const total = parseInt((i.price || 0) * (i.qty || 1)).toLocaleString('ar-SY');
       return '<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--card-border);font-size:12px">' +
         '<span>' + i.name + (i.sub ? ' (' + i.sub + ')' : '') + ' <span style="color:var(--text3)">x' + i.qty + '</span></span>' +
-        '<span style="font-weight:600">' + total + ' ط¸â€‍.ط·آ³</span></div>';
+        '<span style="font-weight:600">' + total + ' ظ„.ط³</span></div>';
     }).join('');
     const itemsTotal = items.reduce((s, i) => s + (parseInt(i.price || 0) * (i.qty || 1)), 0);
     const deliveryFee = parseInt(o.deliveryFee || 0);
@@ -527,19 +527,19 @@ function renderOrders(filter) {
     Object.entries(STATUS_MAP).forEach(([k, v]) => {
       stBtns += '<div class="st-btn' + (o.status === k ? ' active' : '') + '" onclick="changeStatus(\'' + o.id + '\',\'' + k + '\')">' + v.label + '</div>';
     });
-    const payLabel = o.paymentMethod === 'cash' ? 'ط¸â€ ط¸â€ڑط·آ¯ط·آ§ط¸â€¹' : 'ط·آ³ط¸ظ¹ط·آ±ط¸ظ¹ط·آ§ط·ع¾ط¸ظ¹ط¸â€‍ ط¸ئ’ط·آ§ط·آ´';
+    const payLabel = o.paymentMethod === 'cash' ? 'ظ†ظ‚ط¯ط§ظ‹' : 'ط³ظٹط±ظٹط§طھظٹظ„ ظƒط§ط´';
     return '<div class="order-card ' + st.cls + '">' +
       '<div class="oc-top"><div class="oc-id">' + o.id + '</div><div class="status-badge">' + st.label + '</div></div>' +
-      '<div class="oc-cust"><i class="fas fa-user"></i> ' + (o.customerName || 'ط¸â€¦ط·آ³ط·ع¾ط·آ®ط·آ¯ط¸â€¦') + ' | <i class="fas fa-phone"></i> +963' + o.phone + ' | <i class="fas fa-map-marker-alt"></i> ' + (o.address || 'أ¢â‚¬â€‌') + '</div>' +
+      '<div class="oc-cust"><i class="fas fa-user"></i> ' + (o.customerName || 'ظ…ط³طھط®ط¯ظ…') + ' | <i class="fas fa-phone"></i> +963' + o.phone + ' | <i class="fas fa-map-marker-alt"></i> ' + (o.address || 'â€”') + '</div>' +
       '<div class="oc-items" style="cursor:pointer" onclick="toggleOrderDetails(\'' + o.id + '\')">' +
-      '<strong>ط·آ§ط¸â€‍ط¸â€¦ط¸â€ ط·ع¾ط·آ¬ط·آ§ط·ع¾:</strong> ' + itemsShort + ' <span style="color:var(--primary);font-size:11px">[ط·آ¹ط·آ±ط·آ¶ ط·آ§ط¸â€‍ط·ع¾ط¸ظ¾ط·آ§ط·آµط¸ظ¹ط¸â€‍]</span>' +
+      '<strong>ط§ظ„ظ…ظ†طھط¬ط§طھ:</strong> ' + itemsShort + ' <span style="color:var(--primary);font-size:11px">[ط¹ط±ط¶ ط§ظ„طھظپط§طµظٹظ„]</span>' +
       '<div id="details-' + o.id + '" class="hidden" style="margin-top:8px;background:var(--bg);border-radius:var(--radius-sm);padding:8px">' +
       itemsDetail +
-      '<div style="display:flex;justify-content:space-between;padding:4px 0;font-size:12px;color:var(--text3)"><span>ط·آ±ط·آ³ط¸ث†ط¸â€¦ ط·آ§ط¸â€‍ط·ع¾ط¸ث†ط·آµط¸ظ¹ط¸â€‍</span><span>' + deliveryFee.toLocaleString('ar-SY') + ' ط¸â€‍.ط·آ³</span></div>' +
-      '<div style="display:flex;justify-content:space-between;padding:4px 0;font-weight:700;font-size:13px;border-top:2px solid var(--primary);color:var(--primary)"><span>ط·آ§ط¸â€‍ط·آ¥ط·آ¬ط¸â€¦ط·آ§ط¸â€‍ط¸ظ¹</span><span>' + parseInt(o.total).toLocaleString('ar-SY') + ' ط¸â€‍.ط·آ³</span></div>' +
-      (o.note ? '<div style="margin-top:6px;padding:6px 8px;background:var(--warn);border-radius:6px;font-size:12px"><strong>ط¸â€¦ط¸â€‍ط·آ§ط·آ­ط·آ¸ط·آ©:</strong> ' + o.note + '</div>' : '') +
+      '<div style="display:flex;justify-content:space-between;padding:4px 0;font-size:12px;color:var(--text3)"><span>ط±ط³ظˆظ… ط§ظ„طھظˆطµظٹظ„</span><span>' + deliveryFee.toLocaleString('ar-SY') + ' ظ„.ط³</span></div>' +
+      '<div style="display:flex;justify-content:space-between;padding:4px 0;font-weight:700;font-size:13px;border-top:2px solid var(--primary);color:var(--primary)"><span>ط§ظ„ط¥ط¬ظ…ط§ظ„ظٹ</span><span>' + parseInt(o.total).toLocaleString('ar-SY') + ' ظ„.ط³</span></div>' +
+      (o.note ? '<div style="margin-top:6px;padding:6px 8px;background:var(--warn);border-radius:6px;font-size:12px"><strong>ظ…ظ„ط§ط­ط¸ط©:</strong> ' + o.note + '</div>' : '') +
       '</div></div>' +
-      '<div class="oc-foot"><div class="oc-total">' + parseInt(o.total).toLocaleString('ar-SY') + ' ط¸â€‍.ط·آ³ <span style="color:var(--text3);font-weight:400;font-size:11px">(' + payLabel + ')</span></div>' +
+      '<div class="oc-foot"><div class="oc-total">' + parseInt(o.total).toLocaleString('ar-SY') + ' ظ„.ط³ <span style="color:var(--text3);font-weight:400;font-size:11px">(' + payLabel + ')</span></div>' +
       '<div class="oc-actions">' + stBtns + '</div></div>' +
       '<div style="font-size:10px;color:var(--text3);margin-top:4px">' + ds + '</div></div>';
   }).join('');
@@ -558,9 +558,9 @@ function changeStatus(oid, ns) {
     if (o) o.status = ns;
     renderOrders();
     renderStats();
-    toast('ط·ع¾ط¸â€¦ ط·ع¾ط·آ­ط·آ¯ط¸ظ¹ط·آ« ط·آ§ط¸â€‍ط·آ­ط·آ§ط¸â€‍ط·آ©', 'success');
+    toast('طھظ… طھط­ط¯ظٹط« ط§ظ„ط­ط§ظ„ط©', 'success');
   }).catch(function() {
-    toast('ط·ع¾ط·آ¹ط·آ°ط·آ± ط·ع¾ط·آ­ط·آ¯ط¸ظ¹ط·آ« ط·آ§ط¸â€‍ط·آ­ط·آ§ط¸â€‍ط·آ©', 'error');
+    toast('طھط¹ط°ط± طھط­ط¯ظٹط« ط§ظ„ط­ط§ظ„ط©', 'error');
   });
 }
 
@@ -570,7 +570,7 @@ function renderProducts(q) {
   if (q) list = list.filter(p => p.name.includes(q) || (p.sub || '').includes(q));
   const c = document.getElementById('products-list');
   if (!list.length) {
-    c.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text3);grid-column:1/-1"><i class="fas fa-box-open" style="font-size:40px;display:block;margin-bottom:12px"></i>ط¸â€‍ط·آ§ ط·ع¾ط¸ث†ط·آ¬ط·آ¯ ط¸â€¦ط¸â€ ط·ع¾ط·آ¬ط·آ§ط·ع¾</div>';
+    c.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text3);grid-column:1/-1"><i class="fas fa-box-open" style="font-size:40px;display:block;margin-bottom:12px"></i>ظ„ط§ طھظˆط¬ط¯ ظ…ظ†طھط¬ط§طھ</div>';
     return;
   }
   c.innerHTML = list.map(p => {
@@ -578,10 +578,10 @@ function renderProducts(q) {
     const catName = cat ? cat.name : (p.cat || '');
     return '<div class="prod-card">' +
       '<img class="prod-img" src="' + (p.image || 'https://picsum.photos/seed/' + (p.sub || p.id) + '/100/100') + '" alt="' + p.name + '" loading="lazy">' +
-      '<div class="prod-info"><div class="prod-name">' + p.name + (p.active ? '' : ' <span style="color:var(--danger);font-size:10px;font-weight:400">(ط¸â€¦ط·آ®ط¸ظ¾ط¸ظ¹)</span>') + '</div>' +
-      '<div class="prod-meta">' + catName + (p.badge ? ' ط¢آ· ' + p.badge : '') + ' ط¢آ· ' + (p.unit || '') + '</div>' +
-      '<div class="prod-price">' + parseInt(p.price).toLocaleString('ar-SY') + ' ط¸â€‍.ط·آ³' +
-      (p.discount ? ' <span style="color:var(--danger);font-size:10px;font-weight:400">أ¢â€ â€™ ' + Math.round(p.price * (1 - p.discount/100)).toLocaleString('ar-SY') + '</span>' : '') +
+      '<div class="prod-info"><div class="prod-name">' + p.name + (p.active ? '' : ' <span style="color:var(--danger);font-size:10px;font-weight:400">(ظ…ط®ظپظٹ)</span>') + '</div>' +
+      '<div class="prod-meta">' + catName + (p.badge ? ' آ· ' + p.badge : '') + ' آ· ' + (p.unit || '') + '</div>' +
+      '<div class="prod-price">' + parseInt(p.price).toLocaleString('ar-SY') + ' ظ„.ط³' +
+      (p.discount ? ' <span style="color:var(--danger);font-size:10px;font-weight:400">â†’ ' + Math.round(p.price * (1 - p.discount/100)).toLocaleString('ar-SY') + '</span>' : '') +
       '</div></div>' +
       '<div class="prod-actions">' +
       '<div class="prod-toggle' + (p.active ? ' active' : '') + '" onclick="toggleProduct(\'' + p.id + '\')"></div>' +
@@ -597,20 +597,20 @@ function toggleProduct(id) {
   p.active = p.active ? 0 : 1;
   apiPost('/api/products/bulk', PRODS).then(function() {
     renderProducts();
-    toast(p.active ? 'ط·ع¾ط¸â€¦ ط·ع¾ط¸ظ¾ط·آ¹ط¸ظ¹ط¸â€‍ ط·آ§ط¸â€‍ط¸â€¦ط¸â€ ط·ع¾ط·آ¬' : 'ط·ع¾ط¸â€¦ ط·آ¥ط·آ®ط¸ظ¾ط·آ§ط·طŒ ط·آ§ط¸â€‍ط¸â€¦ط¸â€ ط·ع¾ط·آ¬', 'info');
-  }).catch(function() { toast('ط·ع¾ط·آ¹ط·آ°ط·آ± ط·آ§ط¸â€‍ط·ع¾ط·آ­ط·آ¯ط¸ظ¹ط·آ«', 'error'); });
+    toast(p.active ? 'طھظ… طھظپط¹ظٹظ„ ط§ظ„ظ…ظ†طھط¬' : 'طھظ… ط¥ط®ظپط§ط، ط§ظ„ظ…ظ†طھط¬', 'info');
+  }).catch(function() { toast('طھط¹ط°ط± ط§ظ„طھط­ط¯ظٹط«', 'error'); });
 }
 
 function confirmDelete(id) {
   const p = PRODS.find(pr => pr.id === id);
   if (!p) return;
-  modal('ط·آ­ط·آ°ط¸ظ¾ ط·آ§ط¸â€‍ط¸â€¦ط¸â€ ط·ع¾ط·آ¬', 'ط·آ­ط·آ°ط¸ظ¾ "' + p.name + '"ط·ع؛', [
-    { text: 'ط·آ¥ط¸â€‍ط·ط›ط·آ§ط·طŒ', cls: 'btn-outline' },
-    { text: 'ط·آ­ط·آ°ط¸ظ¾', cls: 'btn-danger btn-sm', fn: function() {
+  modal('ط­ط°ظپ ط§ظ„ظ…ظ†طھط¬', 'ط­ط°ظپ "' + p.name + '"طں', [
+    { text: 'ط¥ظ„ط؛ط§ط،', cls: 'btn-outline' },
+    { text: 'ط­ط°ظپ', cls: 'btn-danger btn-sm', fn: function() {
       PRODS = PRODS.filter(pr => pr.id !== id);
       apiPost('/api/products/bulk', PRODS).then(function() {
         renderProducts();
-        toast('ط·ع¾ط¸â€¦ ط·آ­ط·آ°ط¸ظ¾ ط·آ§ط¸â€‍ط¸â€¦ط¸â€ ط·ع¾ط·آ¬', 'info');
+        toast('طھظ… ط­ط°ظپ ط§ظ„ظ…ظ†طھط¬', 'info');
       }).catch(function() {});
     }}
   ]);
@@ -635,13 +635,13 @@ function openForm(id) {
       document.getElementById('f-discount').value = p.discount || '';
       if (p.image) { formImage = p.image; showFormImg(p.image); }
     }
-    document.getElementById('form-title').textContent = 'ط·ع¾ط·آ¹ط·آ¯ط¸ظ¹ط¸â€‍ ط·آ§ط¸â€‍ط¸â€¦ط¸â€ ط·ع¾ط·آ¬';
-    document.getElementById('form-save-btn').textContent = 'ط·آ­ط¸ظ¾ط·آ¸';
+    document.getElementById('form-title').textContent = 'طھط¹ط¯ظٹظ„ ط§ظ„ظ…ظ†طھط¬';
+    document.getElementById('form-save-btn').textContent = 'ط­ظپط¸';
   } else {
     ['f-name','f-sub','f-price','f-unit','f-badge','f-discount'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('f-cat').value = CATS[0]?.id || '';
-    document.getElementById('form-title').textContent = 'ط·آ¥ط·آ¶ط·آ§ط¸ظ¾ط·آ© ط¸â€¦ط¸â€ ط·ع¾ط·آ¬ ط·آ¬ط·آ¯ط¸ظ¹ط·آ¯';
-    document.getElementById('form-save-btn').textContent = 'ط·آ¥ط·آ¶ط·آ§ط¸ظ¾ط·آ©';
+    document.getElementById('form-title').textContent = 'ط¥ط¶ط§ظپط© ظ…ظ†طھط¬ ط¬ط¯ظٹط¯';
+    document.getElementById('form-save-btn').textContent = 'ط¥ط¶ط§ظپط©';
   }
   document.getElementById('form-overlay').classList.remove('hidden');
 }
@@ -674,7 +674,7 @@ async function saveForm() {
   const unit = document.getElementById('f-unit').value.trim();
   const badge = document.getElementById('f-badge').value.trim();
   const discount = parseInt(document.getElementById('f-discount').value) || 0;
-  if (!name || !price) { toast('ط·آ£ط·آ¯ط·آ®ط¸â€‍ ط·آ§ط·آ³ط¸â€¦ ط¸ث†ط·آ³ط·آ¹ط·آ± ط·آ§ط¸â€‍ط¸â€¦ط¸â€ ط·ع¾ط·آ¬', 'error'); return; }
+  if (!name || !price) { toast('ط£ط¯ط®ظ„ ط§ط³ظ… ظˆط³ط¹ط± ط§ظ„ظ…ظ†طھط¬', 'error'); return; }
 
   if (editingId) {
     const p = PRODS.find(pr => pr.id === editingId);
@@ -685,30 +685,30 @@ async function saveForm() {
     }
   } else {
     const maxId = PRODS.reduce((m, p) => Math.max(m, parseInt(p.id) || 0), 0);
-    const newProd = { id: String(maxId + 1), name, sub, price, cat, unit: unit || 'ط¸â€ڑط·آ·ط·آ¹ط·آ©', badge: badge || undefined, discount: discount || undefined, active: 1, image: formImage || '' };
+    const newProd = { id: String(maxId + 1), name, sub, price, cat, unit: unit || 'ظ‚ط·ط¹ط©', badge: badge || undefined, discount: discount || undefined, active: 1, image: formImage || '' };
     PRODS.push(newProd);
   }
   closeForm();
   try {
     await apiPost('/api/products/bulk', PRODS);
     renderProducts();
-    toast(editingId ? 'ط·ع¾ط¸â€¦ ط·ع¾ط·آ¹ط·آ¯ط¸ظ¹ط¸â€‍ ط·آ§ط¸â€‍ط¸â€¦ط¸â€ ط·ع¾ط·آ¬' : 'ط·ع¾ط¸â€¦ ط·آ¥ط·آ¶ط·آ§ط¸ظ¾ط·آ© ط·آ§ط¸â€‍ط¸â€¦ط¸â€ ط·ع¾ط·آ¬', 'success');
-  } catch(e) { toast('ط·ع¾ط·آ¹ط·آ°ط·آ± ط·آ§ط¸â€‍ط·آ­ط¸ظ¾ط·آ¸', 'error'); }
+    toast(editingId ? 'طھظ… طھط¹ط¯ظٹظ„ ط§ظ„ظ…ظ†طھط¬' : 'طھظ… ط¥ط¶ط§ظپط© ط§ظ„ظ…ظ†طھط¬', 'success');
+  } catch(e) { toast('طھط¹ط°ط± ط§ظ„ط­ظپط¸', 'error'); }
 }
 
 function renderCustomers() {
   const c = document.getElementById('customers-list');
   if (!CUSTOMERS.length) {
-    c.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text3)"><i class="fas fa-users" style="font-size:40px;display:block;margin-bottom:12px"></i>ط¸â€‍ط·آ§ ط¸ظ¹ط¸ث†ط·آ¬ط·آ¯ ط·آ²ط·آ¨ط·آ§ط·آ¦ط¸â€  ط·آ¨ط·آ¹ط·آ¯</div>';
+    c.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text3)"><i class="fas fa-users" style="font-size:40px;display:block;margin-bottom:12px"></i>ظ„ط§ ظٹظˆط¬ط¯ ط²ط¨ط§ط¦ظ† ط¨ط¹ط¯</div>';
     return;
   }
   c.innerHTML = CUSTOMERS.map(u => {
     const d = u.last_order ? new Date(u.last_order) : null;
-    return '<div class="cust-card"><div class="cust-info"><strong>' + (u.name || 'ط¸â€¦ط·آ³ط·ع¾ط·آ®ط·آ¯ط¸â€¦') + '</strong>' +
-      '<div class="cust-meta"><i class="fas fa-phone"></i> +963' + u.phone + ' | ط·آ·ط¸â€‍ط·آ¨ط·آ§ط·ع¾: ' + (u.order_count || 0) + ' | ط·آ¥ط·آ¬ط¸â€¦ط·آ§ط¸â€‍ط¸ظ¹: ' + (parseInt(u.total_spent) || 0).toLocaleString('ar-SY') + ' ط¸â€‍.ط·آ³' +
-      (d ? ' | ط·آ¢ط·آ®ط·آ± ط·آ·ط¸â€‍ط·آ¨: ' + d.toLocaleDateString('ar-SY') : '') + '</div></div>' +
+    return '<div class="cust-card"><div class="cust-info"><strong>' + (u.name || 'ظ…ط³طھط®ط¯ظ…') + '</strong>' +
+      '<div class="cust-meta"><i class="fas fa-phone"></i> +963' + u.phone + ' | ط·ظ„ط¨ط§طھ: ' + (u.order_count || 0) + ' | ط¥ط¬ظ…ط§ظ„ظٹ: ' + (parseInt(u.total_spent) || 0).toLocaleString('ar-SY') + ' ظ„.ط³' +
+      (d ? ' | ط¢ط®ط± ط·ظ„ط¨: ' + d.toLocaleDateString('ar-SY') : '') + '</div></div>' +
       '<button class="btn btn-sm ' + (u.banned ? 'btn-primary' : 'btn-danger') + '" onclick="toggleBan(\'' + u.phone + '\')">' +
-      '<i class="fas ' + (u.banned ? 'fa-unlock' : 'fa-ban') + '"></i> ' + (u.banned ? 'ط·آ¥ط¸â€‍ط·ط›ط·آ§ط·طŒ ط·آ§ط¸â€‍ط·آ­ط·آ¸ط·آ±' : 'ط·آ­ط·آ¸ط·آ±') + '</button></div>';
+      '<i class="fas ' + (u.banned ? 'fa-unlock' : 'fa-ban') + '"></i> ' + (u.banned ? 'ط¥ظ„ط؛ط§ط، ط§ظ„ط­ط¸ط±' : 'ط­ط¸ط±') + '</button></div>';
   }).join('');
 }
 
@@ -718,8 +718,8 @@ async function toggleBan(phone) {
     const u = CUSTOMERS.find(c => c.phone === phone);
     if (u) u.banned = r.user.banned;
     renderCustomers();
-    toast(r.user.banned ? 'ط·ع¾ط¸â€¦ ط·آ­ط·آ¸ط·آ± ط·آ§ط¸â€‍ط·آ²ط·آ¨ط¸ث†ط¸â€ ' : 'ط·ع¾ط¸â€¦ ط·آ¥ط¸â€‍ط·ط›ط·آ§ط·طŒ ط·آ§ط¸â€‍ط·آ­ط·آ¸ط·آ±', r.user.banned ? 'error' : 'success');
-  } catch(e) { toast('ط·ع¾ط·آ¹ط·آ°ط·آ± ط·آ§ط¸â€‍ط·ع¾ط·آ­ط·آ¯ط¸ظ¹ط·آ«', 'error'); }
+    toast(r.user.banned ? 'طھظ… ط­ط¸ط± ط§ظ„ط²ط¨ظˆظ†' : 'طھظ… ط¥ظ„ط؛ط§ط، ط§ظ„ط­ط¸ط±', r.user.banned ? 'error' : 'success');
+  } catch(e) { toast('طھط¹ط°ط± ط§ظ„طھط­ط¯ظٹط«', 'error'); }
 }
 
 function renderSettings() {
@@ -728,7 +728,7 @@ function renderSettings() {
     if (s.delivery_fee) document.getElementById('delivery-fee-input').value = s.delivery_fee;
     document.getElementById('callmebot-input').value = s.callmebot_key || '';
     const st = document.getElementById('callmebot-status');
-    st.textContent = s.callmebot_key ? 'أ¢إ“â€œ ط·ع¾ط¸â€¦ ط·آ¥ط·آ¹ط·آ¯ط·آ§ط·آ¯ ط·آ§ط¸â€‍ط¸â€¦ط¸ظ¾ط·ع¾ط·آ§ط·آ­' : 'ط¸â€‍ط¸â€¦ ط¸ظ¹ط·ع¾ط¸â€¦ ط·آ¥ط·آ¹ط·آ¯ط·آ§ط·آ¯ ط·آ§ط¸â€‍ط¸â€¦ط¸ظ¾ط·ع¾ط·آ§ط·آ­ ط·آ¨ط·آ¹ط·آ¯';
+    st.textContent = s.callmebot_key ? 'âœ“ طھظ… ط¥ط¹ط¯ط§ط¯ ط§ظ„ظ…ظپطھط§ط­' : 'ظ„ظ… ظٹطھظ… ط¥ط¹ط¯ط§ط¯ ط§ظ„ظ…ظپطھط§ط­ ط¨ط¹ط¯';
     st.style.color = s.callmebot_key ? 'var(--success)' : 'var(--text3)';
     document.getElementById('custom-css-input').value = s.custom_css || '';
     document.getElementById('custom-js-input').value = s.custom_js || '';
@@ -736,7 +736,7 @@ function renderSettings() {
     document.getElementById('announcement-input').value = s.announcement || '';
     const annActive = s.announcement_active === '1';
     document.getElementById('announcement-toggle').classList.toggle('active', annActive);
-    document.getElementById('announcement-status').textContent = annActive ? 'ط¸â€¦ط¸ظ¾ط·آ¹ط¸â€‍' : 'ط·ط›ط¸ظ¹ط·آ± ط¸â€¦ط¸ظ¾ط·آ¹ط¸â€‍';
+    document.getElementById('announcement-status').textContent = annActive ? 'ظ…ظپط¹ظ„' : 'ط؛ظٹط± ظ…ظپط¹ظ„';
   }).catch(function() {});
 }
 
@@ -749,26 +749,26 @@ function renderCats() {
 function addCategory() {
   const name = document.getElementById('new-cat-name').value.trim();
   const icon = document.getElementById('new-cat-icon').value || 'fa-tag';
-  if (!name) { toast('ط·آ£ط·آ¯ط·آ®ط¸â€‍ ط·آ§ط·آ³ط¸â€¦ ط·آ§ط¸â€‍ط¸â€ڑط·آ³ط¸â€¦', 'error'); return; }
+  if (!name) { toast('ط£ط¯ط®ظ„ ط§ط³ظ… ط§ظ„ظ‚ط³ظ…', 'error'); return; }
   const id = 'cat_' + Date.now();
   CATS.push({ id, name, icon });
   apiPost('/api/categories', { id, name, icon }).then(function() {
     renderCats();
     document.getElementById('new-cat-name').value = '';
     document.getElementById('new-cat-icon').value = '';
-    toast('ط·ع¾ط¸â€¦ ط·آ¥ط·آ¶ط·آ§ط¸ظ¾ط·آ© ط·آ§ط¸â€‍ط¸â€ڑط·آ³ط¸â€¦', 'success');
+    toast('طھظ… ط¥ط¶ط§ظپط© ط§ظ„ظ‚ط³ظ…', 'success');
   }).catch(function() {});
 }
 
 function removeCat(id) {
   if (CATS.length <= 1) return;
-  modal('ط·آ­ط·آ°ط¸ظ¾ ط·آ§ط¸â€‍ط¸â€ڑط·آ³ط¸â€¦', 'ط·ع¾ط·آ£ط¸ئ’ط¸ظ¹ط·آ¯ ط·آ§ط¸â€‍ط·آ­ط·آ°ط¸ظ¾ط·ع؛', [
-    { text: 'ط·آ¥ط¸â€‍ط·ط›ط·آ§ط·طŒ', cls: 'btn-outline' },
-    { text: 'ط·آ­ط·آ°ط¸ظ¾', cls: 'btn-danger btn-sm', fn: function() {
+  modal('ط­ط°ظپ ط§ظ„ظ‚ط³ظ…', 'طھط£ظƒظٹط¯ ط§ظ„ط­ط°ظپطں', [
+    { text: 'ط¥ظ„ط؛ط§ط،', cls: 'btn-outline' },
+    { text: 'ط­ط°ظپ', cls: 'btn-danger btn-sm', fn: function() {
       CATS = CATS.filter(c => c.id !== id);
       apiDelete('/api/categories/' + id).then(function() {
         renderCats();
-        toast('ط·ع¾ط¸â€¦ ط·آ­ط·آ°ط¸ظ¾ ط·آ§ط¸â€‍ط¸â€ڑط·آ³ط¸â€¦', 'info');
+        toast('طھظ… ط­ط°ظپ ط§ظ„ظ‚ط³ظ…', 'info');
       }).catch(function() {});
     }}
   ]);
@@ -776,12 +776,12 @@ function removeCat(id) {
 
 async function saveDeliveryFee() {
   const v = document.getElementById('delivery-fee-input').value;
-  try { await apiPost('/api/settings', { delivery_fee: v }); toast('ط·ع¾ط¸â€¦ ط·آ­ط¸ظ¾ط·آ¸ ط·آ³ط·آ¹ط·آ± ط·آ§ط¸â€‍ط·ع¾ط¸ث†ط·آµط¸ظ¹ط¸â€‍', 'success'); } catch(e) { toast('ط·آ®ط·آ·ط·آ£', 'error'); }
+  try { await apiPost('/api/settings', { delivery_fee: v }); toast('طھظ… ط­ظپط¸ ط³ط¹ط± ط§ظ„طھظˆطµظٹظ„', 'success'); } catch(e) { toast('ط®ط·ط£', 'error'); }
 }
 
 async function saveCallMeBotKey() {
   const v = document.getElementById('callmebot-input').value.trim();
-  try { await apiPost('/api/settings', { callmebot_key: v }); toast(v ? 'ط·ع¾ط¸â€¦ ط·آ­ط¸ظ¾ط·آ¸ ط·آ§ط¸â€‍ط¸â€¦ط¸ظ¾ط·ع¾ط·آ§ط·آ­' : 'ط·ع¾ط¸â€¦ ط·آ§ط¸â€‍ط·آ¥ط·آ²ط·آ§ط¸â€‍ط·آ©', 'success'); renderSettings(); } catch(e) { toast('ط·آ®ط·آ·ط·آ£', 'error'); }
+  try { await apiPost('/api/settings', { callmebot_key: v }); toast(v ? 'طھظ… ط­ظپط¸ ط§ظ„ظ…ظپطھط§ط­' : 'طھظ… ط§ظ„ط¥ط²ط§ظ„ط©', 'success'); renderSettings(); } catch(e) { toast('ط®ط·ط£', 'error'); }
 }
 
 // ===================== TABS =====================
@@ -801,7 +801,7 @@ function toggleDarkMode() {
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   document.documentElement.setAttribute('data-theme', isDark ? '' : 'dark');
   localStorage.setItem('almani_admin_theme', isDark ? '' : 'dark');
-  document.getElementById('dm-label').textContent = isDark ? 'ط¸â€‍ط¸ظ¹ط¸â€‍ط¸ظ¹ / ط¸â€ ط¸â€،ط·آ§ط·آ±ط¸ظ¹' : 'ط¸â€ ط¸â€،ط·آ§ط·آ±ط¸ظ¹ / ط¸â€‍ط¸ظ¹ط¸â€‍ط¸ظ¹';
+  document.getElementById('dm-label').textContent = isDark ? 'ظ„ظٹظ„ظٹ / ظ†ظ‡ط§ط±ظٹ' : 'ظ†ظ‡ط§ط±ظٹ / ظ„ظٹظ„ظٹ';
 }
 
 // ===================== ORDER DETAILS TOGGLE =====================
@@ -816,15 +816,15 @@ function saveCustomCode() {
   const js = document.getElementById('custom-js-input').value;
   const html = document.getElementById('custom-html-input').value;
   apiPost('/api/settings', { custom_css: css, custom_js: js, custom_html: html }).then(function() {
-    toast('ط·ع¾ط¸â€¦ ط·آ­ط¸ظ¾ط·آ¸ ط·آ§ط¸â€‍ط¸ئ’ط¸ث†ط·آ¯', 'success');
-  }).catch(function() { toast('ط·آ®ط·آ·ط·آ£ ط¸ظ¾ط¸ظ¹ ط·آ§ط¸â€‍ط·آ­ط¸ظ¾ط·آ¸', 'error'); });
+    toast('طھظ… ط­ظپط¸ ط§ظ„ظƒظˆط¯', 'success');
+  }).catch(function() { toast('ط®ط·ط£ ظپظٹ ط§ظ„ط­ظپط¸', 'error'); });
 }
 
 function saveAnnouncement() {
   const v = document.getElementById('announcement-input').value;
   apiPost('/api/settings', { announcement: v }).then(function() {
-    toast('ط·ع¾ط¸â€¦ ط·آ­ط¸ظ¾ط·آ¸ ط·آ§ط¸â€‍ط·آ¥ط·آ´ط·آ¹ط·آ§ط·آ±', 'success');
-  }).catch(function() { toast('ط·آ®ط·آ·ط·آ£', 'error'); });
+    toast('طھظ… ط­ظپط¸ ط§ظ„ط¥ط´ط¹ط§ط±', 'success');
+  }).catch(function() { toast('ط®ط·ط£', 'error'); });
 }
 
 function toggleAnnouncement() {
@@ -832,9 +832,9 @@ function toggleAnnouncement() {
   const active = el.classList.contains('active') ? '0' : '1';
   apiPost('/api/settings', { announcement_active: active }).then(function() {
     el.classList.toggle('active');
-    document.getElementById('announcement-status').textContent = active === '1' ? 'ط¸â€¦ط¸ظ¾ط·آ¹ط¸â€‍' : 'ط·ط›ط¸ظ¹ط·آ± ط¸â€¦ط¸ظ¾ط·آ¹ط¸â€‍';
-    toast(active === '1' ? 'ط·ع¾ط¸â€¦ ط·ع¾ط¸ظ¾ط·آ¹ط¸ظ¹ط¸â€‍ ط·آ§ط¸â€‍ط·آ¥ط·آ´ط·آ¹ط·آ§ط·آ±' : 'ط·ع¾ط¸â€¦ ط·آ¥ط¸ظ¹ط¸â€ڑط·آ§ط¸ظ¾ ط·آ§ط¸â€‍ط·آ¥ط·آ´ط·آ¹ط·آ§ط·آ±', 'info');
-  }).catch(function() { toast('ط·آ®ط·آ·ط·آ£', 'error'); });
+    document.getElementById('announcement-status').textContent = active === '1' ? 'ظ…ظپط¹ظ„' : 'ط؛ظٹط± ظ…ظپط¹ظ„';
+    toast(active === '1' ? 'طھظ… طھظپط¹ظٹظ„ ط§ظ„ط¥ط´ط¹ط§ط±' : 'طھظ… ط¥ظٹظ‚ط§ظپ ط§ظ„ط¥ط´ط¹ط§ط±', 'info');
+  }).catch(function() { toast('ط®ط·ط£', 'error'); });
 }
 
 // ===================== AUTO-LOGIN =====================
